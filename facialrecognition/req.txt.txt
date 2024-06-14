@@ -1,3 +1,7 @@
+#here are the libraries req
+
+cvzone
+face-recognition
 cmake
 dlib
 face-recognition
