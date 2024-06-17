@@ -1,7 +1,10 @@
 #here are the libraries req
 
 cvzone
-face-recognition
+face_recognition
 cmake
 dlib
-face-recognition
+os
+pickle
+
+
