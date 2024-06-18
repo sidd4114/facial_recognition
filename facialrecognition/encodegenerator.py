@@ -4,15 +4,16 @@ import os
 import face_recognition
 
 #importing images of students into list
-foldermodepath=r'facialrecognition\images'
+folderpath=r'facialrecognition\images'
 
-pathlist=os.listdir(foldermodepath)    #list of stud imgs                                                #a list containing imgs
+pathlist=os.listdir(folderpath)    #list of stud imgs 
+#print(pathlist)
 
 imglist=[] #empty list
 studentid=[] #empty list for id
 
 for path in pathlist:
-  imglist.append(cv2.imread(os.path.join(foldermodepath,path)))   #joining path
+  imglist.append(cv2.imread(os.path.join(folderpath,path)))   #joining path
   #os.path.splitext(path,[0])  #spilting id and .png and getting id
   studentid.append(os.path.splitext(path)[0])
 
@@ -26,7 +27,7 @@ def findencodings(imageslist):
   encodelist=[]  #creating empty list for encodeings
   for img in imageslist:
     img=cv2.cvtColor(img,cv2.COLOR_BGR2RGB)      #converting bgr to rgb since opencv uses bgr and facerecog uses 
-    encode=face_recognition.face_encodings(img)  #finding encodings
+    encode=face_recognition.face_encodings(img)[0]  #finding encodings
     encodelist.append(encode)
 
   return encodelist
